@@ -6,7 +6,7 @@ from print_letters import PrintLettersPage
 from print_split import PrintSplit
 from re_assemble import ReAssemblePage
 from rev_print import RevPrint
-from find_speed import find_speed
+from find_speed import FindSpeed
 from total_vow import TotalVow
 
 
@@ -81,31 +81,31 @@ class MainMenu:
         # Ana menüyü gizle
         self.root.withdraw()
         # Button 1 sayfasýný aç
-        self.button1_page = PrintSplit(self.root, self.root_x, self.root_y)
+        self.button1_page = PrintLettersPage(self.root, self.root_x, self.root_y)
 
     def open_button2_page(self):
         self.root.withdraw()
-        self.button2_page = ReAssemblePage(self.root, self.root_x, self.root_y)
+        self.button2_page = RevPrint(self.root, self.root_x, self.root_y)
 
     def open_button3_page(self):
         self.root.withdraw()
-        self.button3_page = TotalVow(self.root, self.root_x, self.root_y)
+        self.button3_page = changeAs(self.root, self.root_x, self.root_y)
 
     def open_button4_page(self):
         self.root.withdraw()
-        self.button4_page = find_speed(self.root, self.root_x, self.root_y)
+        self.button4_page = PrintSplit(self.root, self.root_x, self.root_y)
 
     def open_button5_page(self):
         self.root.withdraw()
-        self.button5_page = RevPrint(self.root, self.root_x, self.root_y)
+        self.button5_page = ReAssemblePage(self.root, self.root_x, self.root_y)
 
     def open_button6_page(self):
         self.root.withdraw()
-        self.button6_page = changeAs(self.root, self.root_x, self.root_y)
+        self.button6_page = TotalVow(self.root, self.root_x, self.root_y)
 
     def open_button7_page(self):
         self.root.withdraw()
-        self.button7_page = PrintLettersPage(self.root, self.root_x, self.root_y)
+        self.button7_page = FindSpeed(self.root, self.root_x, self.root_y)
 
 # Ana pencereyi olu�tur ve s�n�f� ba�lat
 
