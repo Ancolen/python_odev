@@ -20,7 +20,7 @@ class TotalVow:
             background="navy",
             font=("Georgia", 20, "underline", "bold")
         )
-        self.label.place(x= 125, y= 25)
+        self.label.place(x= 200, y= 25)
         
         self.top.config(background="navy")
         self.text = tk.Message(self.top, text="You can write a sentence or text", fg="light grey", width=2000, font=("Arial", 14, "bold", "italic"), background="navy")

@@ -19,7 +19,7 @@ class RevPrint:
             background="navy",
             font=("Georgia", 20, "underline", "bold")
         )
-        self.label.place(x= 125, y= 25)
+        self.label.place(x= 140, y= 25)
         
         self.top.config(background="navy")
 

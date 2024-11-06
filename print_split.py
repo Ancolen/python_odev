@@ -17,12 +17,12 @@ class PrintSplit:
         # Sayfa ba�l���
         self.label = tk.Label(
             self.top,
-            text= "PRINT LETTERS ONE BELOW THE OTHER",
+            text= "PRINT SPLIT",
             fg = "white",
             background="navy",
             font=("Georgia", 20, "underline", "bold")
         )
-        self.label.place(x= 125, y= 25)
+        self.label.place(x= 310, y= 25)
         
         self.top.config(background="navy")
         self.text = tk.Message(self.top, text="You can write a sentence or text", fg="light grey", width=2000, font=("Arial", 14, "bold", "italic"), background="navy")
