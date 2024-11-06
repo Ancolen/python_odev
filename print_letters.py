@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import Text, Button
 
-
 class PrintLettersPage:
     def __init__(self, master, root_x, root_y):
         self.master = master
