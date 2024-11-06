@@ -4,16 +4,16 @@ from tkinter import Text, Button
 from datetime import datetime
 import re
 
-class find_speed:
+class FindSpeed:
     def __init__(self, master, root_x, root_y):
         self.master = master
         self.top = tk.Toplevel(master)
 
-        # Yeni pencereyi ana pencerenin üzerine açacak þekilde konumlandýr
-        self.top.title("Reverse Text Page")
+        # Yeni pencereyi ana pencerenin ï¿½zerine aï¿½acak ï¿½ekilde konumlandï¿½r
+        self.top.title("FIND SPEED")
         self.top.geometry("600x600+{}+{}".format(root_x, root_y))
 
-        # Sayfa baþlýðý
+        # Sayfa baï¿½lï¿½ï¿½ï¿½
         self.label = tk.Label(
             self.top,
             text="FIND SPEED",
@@ -23,7 +23,7 @@ class find_speed:
         )
         self.label.place(x=50, y=25)
 
-        # Giriþ ve çýkýþ alanlarý
+        # Giriï¿½ ve ï¿½ï¿½kï¿½ï¿½ alanlarï¿½
         tk.Label(self.top, text="You can write a sentence or text").pack()
 
         self.inputtxt = Text(self.top, height=10, width=25, bg="white")
@@ -36,7 +36,7 @@ class find_speed:
         self.Display = tk.Button(self.top, height=2, width=20, text="Answer", command=self.display_text)
         self.Display.pack(pady=10)
 
-        # Ana menüye dön butonu
+        # Ana menï¿½ye dï¿½n butonu
         self.simple_button = tk.Button(self.top, text="Return to Main Menu", command=self.return_to_main_menu)
         self.simple_button.pack(pady=10)
 
@@ -49,22 +49,22 @@ class find_speed:
 
         res = len(re.findall(r'\w+', text))
 
-        tmp = "your score is: " + ddtimestamp - dtimestamp + "seconds"
+        tmp = "your score is: ", (ddtimestamp - dtimestamp), "seconds"
 
-        words = (60*res)/(ddtimestamp - dtimestamp)
+        words = (60.0*res)/(ddtimestamp - dtimestamp)
 
-        last = tmp + "\n" + "your speed is: " + words + "words per minute"
+        last = tmp, "\n", "your speed is: ", words, "words per minute"
 
         return last
 
     def display_text(self):
-        # Giriþ metnini al ve ters çevirerek çýkýþa ekle
+        # Giriï¿½ metnini al ve ters ï¿½evirerek ï¿½ï¿½kï¿½ï¿½a ekle
         input_text = self.inputtxt.get("1.0", "end-1c")
         tmp = self.find_speed(input_text)
         self.Output.delete("1.0", "end")
-        self.Output.insert("end", len(tmp))
+        self.Output.insert("end", tmp)
 
     def return_to_main_menu(self):
-        # Üst pencereyi kapatýr ve ana pencereyi yeniden gösterir
+        # ï¿½st pencereyi kapatï¿½r ve ana pencereyi yeniden gï¿½sterir
         self.top.destroy()
         self.master.deiconify()

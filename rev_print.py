@@ -1,4 +1,3 @@
-
 import tkinter as tk
 from tkinter import Text, Button
 
@@ -7,11 +6,11 @@ class RevPrint:
         self.master = master
         self.top = tk.Toplevel(master)
 
-        # Yeni pencereyi ana pencerenin üzerine açacak þekilde konumlandýr
+        # Yeni pencereyi ana pencerenin Ã¼zerine aÃ§acak Ã¾ekilde konumlandÃ½r
         self.top.title("Reverse Text Page")
         self.top.geometry("600x600+{}+{}".format(root_x, root_y))
 
-        # Sayfa baþlýðý
+        # Sayfa baÃ¾lÃ½Ã°Ã½
         self.label = tk.Label(
             self.top,
             text="PRINT REVERSE OF TEXT AND WORDS",
@@ -21,7 +20,7 @@ class RevPrint:
         )
         self.label.place(x=50, y=25)
 
-        # Giriþ ve çýkýþ alanlarý
+        # GiriÃ¾ ve Ã§Ã½kÃ½Ã¾ alanlarÃ½
         tk.Label(self.top, text="You can write a sentence or text").pack()
 
         self.inputtxt = Text(self.top, height=10, width=25, bg="white")
@@ -34,7 +33,7 @@ class RevPrint:
         self.Display = tk.Button(self.top, height=2, width=20, text="Answer", command=self.display_text)
         self.Display.pack(pady=10)
 
-        # Ana menüye dön butonu
+        # Ana menÃ¼ye dÃ¶n butonu
         self.simple_button = tk.Button(self.top, text="Return to Main Menu", command=self.return_to_main_menu)
         self.simple_button.pack(pady=10)
 
@@ -46,13 +45,13 @@ class RevPrint:
         return (reverseTxt, ntext)
 
     def display_text(self):
-        # Giriþ metnini al ve ters çevirerek çýkýþa ekle
+        # GiriÃ¾ metnini al ve ters Ã§evirerek Ã§Ã½kÃ½Ã¾a ekle
         input_text = self.inputtxt.get("1.0", "end-1c")
         reverseTxt, ntext = self.rev_print(input_text)
         self.Output.delete("1.0", "end")
         self.Output.insert("end", reverseTxt + "\n" + ntext)
 
     def return_to_main_menu(self):
-        # Üst pencereyi kapatýr ve ana pencereyi yeniden gösterir
+        # Ãœst pencereyi kapatÃ½r ve ana pencereyi yeniden gÃ¶sterir
         self.top.destroy()
         self.master.deiconify()
