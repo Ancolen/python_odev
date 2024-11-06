@@ -9,7 +9,7 @@ class ReAssemblePage:
         # Yeni pencereyi ana pencerenin üzerine a�acak �ekilde konumland�r
         self.top.title("RE ASSEMBLE")
         self.top.resizable(False, False)
-        self.top.minsize(height=650, width=810)
+        self.top.geometry("810x650+100+150")
 
         # Sayfa baslığı
         self.label = tk.Label(

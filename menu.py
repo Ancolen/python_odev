@@ -16,7 +16,7 @@ class MainMenu:
     def __init__(self, root):
         self.root = root
         self.root.title("TEXT MANIPULATION PROGRAM")
-        self.root.minsize(height=650, width=810)
+        self.root.geometry("810x650+100+150")
         self.root.resizable(False, False)
         self.root.config(background="navy")
 

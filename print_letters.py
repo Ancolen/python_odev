@@ -9,7 +9,7 @@ class PrintLettersPage:
         # Yeni pencereyi ana pencerenin �zerine a�acak �ekilde konumland�r
         self.top.title("PRINT LETTERS")
         self.top.resizable(False, False)
-        self.top.minsize(height=650, width=810)
+        self.top.geometry("810x650+100+150")
 
         # Sayfa ba�l���
         self.label = tk.Label(

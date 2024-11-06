@@ -9,7 +9,7 @@ class changeAs:
         # Yeni pencereyi ana pencerenin üzerine açacak şekilde konumlanır
         self.top.title("CHANGE'a'S")
         self.top.resizable(False, False)
-        self.top.minsize(height=650, width=810)
+        self.top.geometry("810x650+100+150")
 
         # Sayfa baslığı
         self.label = tk.Label(

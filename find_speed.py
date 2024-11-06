@@ -8,11 +8,13 @@ class FindSpeed:
     def __init__(self, master, root_x, root_y):
         self.master = master
         self.top = tk.Toplevel(master)
+        
+        self.start_time = None
 
         # Yeni pencereyi ana pencerenin �zerine a�acak �ekilde konumland�r
         self.top.title("FIND SPEED")
         self.top.resizable(False, False)
-        self.top.minsize(height=650, width=810)
+        self.top.geometry("810x650+100+150")
 
         # Sayfa ba�l���
         self.label = tk.Label(
@@ -30,9 +32,10 @@ class FindSpeed:
         
         self.inputtxt = Text(self.top, height=10, width=35, bg="white")
         self.inputtxt.place(x = 265, y = 150)
+        self.inputtxt.bind("<FocusIn>", self.start_timing)  # Tıklandığında zamanı başlat
 
-        self.Output = Text(self.top, height=10, width=25, bg="light cyan")
-        self.Output.place(x = 300, y = 400)
+        self.Output = Text(self.top, height=7, width=40, bg="light cyan")
+        self.Output.place(x = 250, y = 400)
 
         # 'Answer' butonu
         self.Display = tk.Button(self.top, height=2, width=20, text="Answer", command=self.display_text)
@@ -41,30 +44,39 @@ class FindSpeed:
         # Ana menüye dön butonu
         self.simple_button = tk.Button(self.top, width=20, text="Back to the Main Menu", command=self.return_to_main_menu)
         self.simple_button.place(x = 330, y = 590)
+        
+    def start_timing(self, event):
+        """Girdi kutusu focus aldığında zamanlayıcıyı başlatır."""
+        self.start_time = datetime.now()
+        self.dtimestamp = self.start_time.timestamp()
     
     def find_speed(self, text):
-        dtime = datetime.now()
-        dtimestamp = dtime.timestamp()
+        """Yazma hızını saniye başına harf ve süre cinsinden hesaplar."""
+        if not self.start_time:
+            return "Error"
 
-        ddtime = datetime.now()
-        ddtimestamp = ddtime.timestamp()
+        end_time = datetime.now()
+        dtimestamp1 = end_time.timestamp()
 
-        res = len(re.findall(r'\w+', text))
+        # Metindeki harf sayısını bul (boşlukları hariç tutarak)
+        letter_count = len(re.findall(r'\w', text))  # Boşlukları çıkarır
+        self.words = (60*letter_count)/(dtimestamp1 - self.dtimestamp)
+        # Sonuç metnini oluştur
+        result = (
+            f"Your score: {dtimestamp1 - self.dtimestamp:.7f} seconds.\n"
+            f"{self.words:.1f} letters per second."
+        )
 
-        tmp = "your score is: ", (ddtimestamp - dtimestamp), "seconds"
+        return result
 
-        words = (60.0*res)/(ddtimestamp - dtimestamp)
-
-        last = tmp, "\n", "your speed is: ", words, "words per minute"
-
-        return last
 
     def display_text(self):
-        # Giri� metnini al ve ters �evirerek ��k��a ekle
-        input_text = self.inputtxt.get("1.0", "end-1c")
-        tmp = self.find_speed(input_text)
-        self.Output.delete("1.0", "end")
-        self.Output.insert("end", tmp)
+        """Yazma hızı ve süreyi gösterir."""
+        input_text = self.inputtxt.get("1.0", "end-1c")  # Girdi kutusundan metni al
+        result = self.find_speed(input_text)
+        self.Output.delete("1.0", "end")  # Çıktı kutusunu temizle
+        self.Output.insert("end", result)  # Sonucu çıktı kutusuna yazdır
+
 
     def return_to_main_menu(self):
         # �st pencereyi kapat�r ve ana pencereyi yeniden g�sterir

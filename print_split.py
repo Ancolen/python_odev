@@ -12,7 +12,7 @@ class PrintSplit:
         # Yeni pencereyi ana pencereyi üzerine açacak şekilde konumlandır
         self.top.title("PRINT SPLIT")
         self.top.resizable(False, False)
-        self.top.minsize(height=650, width=810)
+        self.top.geometry("810x650+100+150")
 
         # Sayfa ba�l���
         self.label = tk.Label(
