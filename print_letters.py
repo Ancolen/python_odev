@@ -37,7 +37,7 @@ class PrintLettersPage:
         self.Display.place(x= 330, y = 330)
 
         # Ana menüye dön butonu
-        self.simple_button = tk.Button(self.top, width=20, text="Return to Main Menu", command=self.return_to_main_menu)
+        self.simple_button = tk.Button(self.top, width=20, text="Back to the Main Menu", command=self.return_to_main_menu)
         self.simple_button.place(x = 330, y = 590)
         
     def print_letters(self, txt):

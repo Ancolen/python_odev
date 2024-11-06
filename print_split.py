@@ -9,46 +9,46 @@ class PrintSplit:
         self.master = master
         self.top = tk.Toplevel(master)
 
-        # Yeni pencereyi ana pencereyi �zerine a�acak �ekilde konumland�r
-        self.top.title("Button 1 Sayfasi")
-        self.top.geometry("600x600+{}+{}".format(root_x, root_y))  # Ana pencereyle ayn� konumda a��lacak
+        # Yeni pencereyi ana pencereyi üzerine açacak şekilde konumlandır
+        self.top.title("PRINT SPLIT")
+        self.top.resizable(False, False)
+        self.top.minsize(height=650, width=810)
 
-        # Sayfa i�eri�i
-        self.label = tk.Label(self.top,  # 'root' yerine 'self.top' kullan�ld�
-                             text="PRINT LETTERS ONE BELOW THE OTHER",
-                             fg="white",
-                             background="navy",
-                             font=("Georgia", 20, "underline", "bold")
-                             )
-        self.label.place(x=50, y=25)  # Yerle�imi d�zelttim
+        # Sayfa ba�l���
+        self.label = tk.Label(
+            self.top,
+            text= "PRINT LETTERS ONE BELOW THE OTHER",
+            fg = "white",
+            background="navy",
+            font=("Georgia", 20, "underline", "bold")
+        )
+        self.label.place(x= 125, y= 25)
+        
+        self.top.config(background="navy")
+        self.text = tk.Message(self.top, text="You can write a sentence or text", fg="light grey", width=2000, font=("Arial", 14, "bold", "italic"), background="navy")
+        self.text.place(x = 250, y=90)
+        
+        self.inputtxt = Text(self.top, height=10, width=35, bg="white")
+        self.inputtxt.place(x = 265, y = 150)
 
-        l = tk.Label(self.top, text="You can write a sentence or text")
-        l.pack()
-
-        # Input ve Output alanlar�
-        self.inputtxt = Text(self.top, height=10, width=25, bg="white")
-        self.inputtxt.pack()
-
-        self.Output = Text(self.top, height=5, width=25, bg="light cyan")
-        self.Output.pack()
+        self.Output = Text(self.top, height=10, width=25, bg="light cyan")
+        self.Output.place(x = 300, y = 400)
 
         # Display butonu
         self.Display = tk.Button(self.top, height=2, width=20, text="Answer", command=self.display_text)
-        self.Display.pack(pady=10)
+        self.Display.place(x= 330, y = 330)
 
         # Ana Men�ye d�n butonu
-        self.simple_button = tk.Button(self.top, text="Ana Menuye Don", command=self.return_to_main_menu)
-        self.simple_button.pack(pady=10)
+        self.simple_button = tk.Button(self.top, width=20, text="Back to the Main Menu", command=self.return_to_main_menu)
+        self.simple_button.place(x = 330, y = 590)
 
     def print_split(self, text):
         words = text.split()
-        print(words)
         return words
 
     def display_text(self):
         input_text = self.inputtxt.get("1.0", "end-1c")
         words = self.print_split(input_text)
-        print(words)
         self.Output.delete("1.0", "end")
         formatedtext = str(words)
         self.Output.insert("end", formatedtext)
