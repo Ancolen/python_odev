@@ -24,7 +24,7 @@ class PrintLettersPage:
         
         self.top.config(background="navy")
         self.text = tk.Message(self.top, text="You can write a sentence or text", fg="light grey", width=2000, font=("Arial", 14, "bold", "italic"), background="navy")
-        self.text.place(x = 250, y=100)
+        self.text.place(x = 250, y=90)
         
         self.inputtxt = Text(self.top, height=10, width=35, bg="white")
         self.inputtxt.place(x = 265, y = 150)
@@ -36,7 +36,7 @@ class PrintLettersPage:
         self.Display = tk.Button(self.top, height=2, width=20, text="Answer", command=self.display_text)
         self.Display.place(x= 330, y = 330)
 
-        # Ana men�ye d�n butonu
+        # Ana menüye dön butonu
         self.simple_button = tk.Button(self.top, width=20, text="Return to Main Menu", command=self.return_to_main_menu)
         self.simple_button.place(x = 330, y = 590)
         
@@ -53,6 +53,7 @@ class PrintLettersPage:
         self.Output.insert("end", tmp)
     
     def return_to_main_menu(self):
+       # Üst pencereyi kapatır ve ana pencereyi yeniden gösterir
         self.top.destroy()
         self.master.deiconify()
     

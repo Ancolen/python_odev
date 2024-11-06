@@ -24,7 +24,7 @@ class RevPrint:
         self.top.config(background="navy")
 
         self.text = tk.Message(self.top, text="You can write a sentence or text", fg="light grey", width=2000, font=("Arial", 14, "bold", "italic"), background="navy")
-        self.text.place(x = 250, y=100)
+        self.text.place(x = 250, y=90)
 
         self.inputtxt = Text(self.top, height=10, width=35, bg="white")
         self.inputtxt.place(x = 265, y = 150)

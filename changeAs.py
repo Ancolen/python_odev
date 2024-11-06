@@ -1,4 +1,3 @@
-
 import tkinter as tk
 from tkinter import LAST, Text, Button
 
@@ -7,36 +6,38 @@ class changeAs:
         self.master = master
         self.top = tk.Toplevel(master)
 
-        # Yeni pencereyi ana pencerenin �zerine a�acak �ekilde konumland�r
-        self.top.title("Reverse Text Page")
-        self.top.geometry("600x600+{}+{}".format(root_x, root_y))
+        # Yeni pencereyi ana pencerenin üzerine açacak şekilde konumlanır
+        self.top.title("CHANGE'a'S")
+        self.top.resizable(False, False)
+        self.top.minsize(height=650, width=810)
 
-        # Sayfa ba�l���
+        # Sayfa baslığı
         self.label = tk.Label(
             self.top,
-            text="PRINT REVERSE OF TEXT AND WORDS",
-            fg="white",
+            text= "CHANGE ALL OF 'a' IN TEXT TO 'A'",
+            fg = "white",
             background="navy",
             font=("Georgia", 20, "underline", "bold")
         )
-        self.label.place(x=50, y=25)
+        self.label.place(x= 125, y= 25)
+        
+        self.top.config(background="navy")
+        self.text = tk.Message(self.top, text="You can write a sentence or text", fg="light grey", width=2000, font=("Arial", 14, "bold", "italic"), background="navy")
+        self.text.place(x = 250, y=90)
 
-        # Giri� ve ��k�� alanlar�
-        tk.Label(self.top, text="You can write a sentence or text").pack()
+        self.inputtxt = Text(self.top, height=10, width=35, bg="white")
+        self.inputtxt.place(x = 265, y = 150)
 
-        self.inputtxt = Text(self.top, height=10, width=25, bg="white")
-        self.inputtxt.pack()
-
-        self.Output = Text(self.top, height=5, width=25, bg="light cyan")
-        self.Output.pack()
+        self.Output = Text(self.top, height=10, width=25, bg="light cyan")
+        self.Output.place(x = 300, y = 400)
 
         # 'Answer' butonu
         self.Display = tk.Button(self.top, height=2, width=20, text="Answer", command=self.display_text)
-        self.Display.pack(pady=10)
+        self.Display.place(x= 330, y = 330)
 
         # Ana men�ye d�n butonu
-        self.simple_button = tk.Button(self.top, text="Return to Main Menu", command=self.return_to_main_menu)
-        self.simple_button.pack(pady=10)
+        self.simple_button = tk.Button(self.top, width=20, text="Return to Main Menu", command=self.return_to_main_menu)
+        self.simple_button.place(x = 330, y = 590)
 
     def changeAs(self, text):
         lastText = ""
@@ -48,13 +49,12 @@ class changeAs:
         return lastText
 
     def display_text(self):
-        # Giri� metnini al ve ters �evirerek ��k��a ekle
         input_text = self.inputtxt.get("1.0", "end-1c")
         ntext = self.changeAs(input_text)
         self.Output.delete("1.0", "end")
         self.Output.insert("end", ntext)
 
     def return_to_main_menu(self):
-        # �st pencereyi kapat�r ve ana pencereyi yeniden g�sterir
+        # Üst pencereyi kapatır ve ana pencereyi yeniden gösterir
         self.top.destroy()
         self.master.deiconify()
