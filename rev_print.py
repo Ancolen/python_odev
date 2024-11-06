@@ -9,7 +9,7 @@ class RevPrint:
         # Yeni pencereyi ana pencerenin üzerine açacak þekilde konumlandýr
         self.top.title("REVERSE TEXT PAGE")
         self.top.resizable(False, False)
-        self.top.minsize(height=650, width=810)
+        self.top.geometry("810x650+100+150")
     
         # Sayfa baþlýðý
         self.label = tk.Label(
@@ -29,8 +29,8 @@ class RevPrint:
         self.inputtxt = Text(self.top, height=10, width=35, bg="white")
         self.inputtxt.place(x = 265, y = 150)
 
-        self.Output = Text(self.top, height=10, width=25, bg="light cyan")
-        self.Output.place(x = 300, y = 400)
+        self.Output = Text(self.top, height=10, width=50, bg="light cyan")
+        self.Output.place(x = 200, y = 400)
 
         # 'Answer' butonu
         self.Display = tk.Button(self.top, height=2, width=20, text="Answer", command=self.display_text)
@@ -41,18 +41,23 @@ class RevPrint:
         self.simple_button.place(x = 330, y = 590)
 
     def rev_print(self, text):
-        reverseTxt = text[::-1]
+        reverse_text = text[::-1]
         all_words = text.split()
-        reverse_words = [word[::-1] for word in all_words]
-        ntext = " ".join(reverse_words)
-        return (reverseTxt, ntext)
+        all_reverse_words = [word[::-1] for word in all_words]
+        reverse_words = " ".join(all_reverse_words)
+        rev_print = (
+            f"Your text: {text}\n\n"
+            f"Reverse of text: {reverse_text}\n\n"
+            f"Reverse of words: {reverse_words}"
+        )
+        return (rev_print)
 
     def display_text(self):
         # Giriþ metnini al ve ters çevirerek çýkýþa ekle
         input_text = self.inputtxt.get("1.0", "end-1c")
-        reverseTxt, ntext = self.rev_print(input_text)
+        rev_print = self.rev_print(input_text)
         self.Output.delete("1.0", "end")
-        self.Output.insert("end", reverseTxt + "\n" + ntext)
+        self.Output.insert("end", rev_print)
 
     def return_to_main_menu(self):
         # Üst pencereyi kapatýr ve ana pencereyi yeniden gösterir

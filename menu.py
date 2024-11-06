@@ -19,12 +19,6 @@ class MainMenu:
         self.root.geometry("810x650+100+150")
         self.root.resizable(False, False)
         self.root.config(background="navy")
-
-        # Ana pencerenin ekranýn üst sol köþesinin koordinatlarýný al
-        x = self.root.winfo_rootx()
-        y = self.root.winfo_rooty()
-        print(x)
-        print(y)
         
         self.label = tk.Label(
             root,
