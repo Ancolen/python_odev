@@ -23,13 +23,11 @@ class PrintLettersPage:
         self.label.place(x= 125, y= 25)
         
         self.top.config(background="navy")
-
-        # Giri� ve ��k�� alanlar�
         self.text = tk.Message(self.top, text="You can write a sentence or text", fg="light grey", width=2000, font=("Arial", 14, "bold", "italic"), background="navy")
         self.text.place(x = 250, y=100)
         
-        self.inputtxt = Text(self.top, height=10, width=25, bg="white")
-        self.inputtxt.place(x = 300, y = 150)
+        self.inputtxt = Text(self.top, height=10, width=35, bg="white")
+        self.inputtxt.place(x = 265, y = 150)
 
         self.Output = Text(self.top, height=10, width=25, bg="light cyan")
         self.Output.place(x = 300, y = 400)
@@ -40,7 +38,7 @@ class PrintLettersPage:
 
         # Ana men�ye d�n butonu
         self.simple_button = tk.Button(self.top, width=20, text="Return to Main Menu", command=self.return_to_main_menu)
-        self.simple_button.place(x = 330, y = 570)
+        self.simple_button.place(x = 330, y = 590)
         
     def print_letters(self, txt):
         tmp = ""
