@@ -1,6 +1,5 @@
 import tkinter as tk
-from tkinter import Text, Button
-
+from tkinter import Text
 
 class TotalVow:
     def __init__(self, master, root_x, root_y):
@@ -12,7 +11,6 @@ class TotalVow:
         self.top.resizable(False, False)
         self.top.geometry("810x650+100+150")
 
-        # Sayfa ba�l���
         self.label = tk.Label(
             self.top,
             text= "TOTAL NUMBERS OF VOWELS",

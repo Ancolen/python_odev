@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import LAST, Text, Button
+from tkinter import LAST, Text
 
 class changeAs:
     def __init__(self, master, root_x, root_y):

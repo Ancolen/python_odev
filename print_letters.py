@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import Text, Button
+from tkinter import Text
 
 class PrintLettersPage:
     def __init__(self, master, root_x, root_y):

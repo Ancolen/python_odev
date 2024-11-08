@@ -1,5 +1,4 @@
 import tkinter as tk
-from tkinter import Text
 
 from changeAs import changeAs
 from print_letters import PrintLettersPage
@@ -8,7 +7,6 @@ from re_assemble import ReAssemblePage
 from rev_print import RevPrint
 from find_speed import FindSpeed
 from total_vow import TotalVow
-
 
 class MainMenu:
     root_x = 0

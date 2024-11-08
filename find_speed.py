@@ -1,6 +1,6 @@
 
 import tkinter as tk
-from tkinter import Text, Button
+from tkinter import Text
 from datetime import datetime
 import re
 

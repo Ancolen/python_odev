@@ -1,8 +1,5 @@
 import tkinter as tk
-from tkinter import ttk
 from tkinter import *
-from tkinter import Button
-
 
 class PrintSplit:
     def __init__(self, master, root_x, root_y):
